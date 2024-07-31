@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>French Tourism</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  *{
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+img {width: 100%; max-width: 200px; height: 150px; margin: 5px;}
+header {
+  background-image: url('https://static.vecteezy.com/system/resources/thumbnails/007/100/599/small/abstract-geometric-white-and-gray-on-light-silver-gradient-background-modern-banner-design-illustration-free-vector.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.w3-third {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+.w3-third img {
+  width: 100%;
+  height: 100%;
+  padding-right: 20px;
+}
+.w3-third img:hover {
+  transform: scale(1.5);
+  transition: 1.5s;
+}
+
+
+.searchBox {
+  position: fixed; /* Changed from absolute to fixed */
+  top: 6px; /* Adjust based on your layout */
+  right: 10px; /* Adjust based on your layout */
+  display: flex;
+  align-items: center;
+}
+
+.searchBox input {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  width: 0;
+  padding: 0;
+  opacity: 0;
+  border-radius: 20px; /* Reduced to fit better with the icon */
+  font-size: 15px;
+  color: #ffffff;
+  transition: all 0.5s ease;
+  position: absolute;
+  right: 50px; /* Distance from the search icon */
+}
+
+.searchBox input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.searchBox i {
+  background-color: rgb(0, 0, 0);
+  width: 40px;
+  height: 40px;
+  padding: 9px 10px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.searchBox:hover input {
+  width: 150px; /* Adjusted width */
+  opacity: 1;
+  padding: 10px 20px;
+  right: 50px; /* Ensure it stays in place when expanded */
+}
+
+.searchBox:hover i {
+  color: #fff;
+}
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4,1fr); /* Adjusts grid layout */
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.card {
+  box-sizing: border-box;
+  border: 1px solid #ddd; /* Optional: Adds a border around cards */
+  overflow: hidden; /* Ensures content does not overflow */
+  
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card .text {
+  padding: 10px;
+  color: #ffffff;
+  background-color: #232121;
+  text-align: center;
+}
+.card:hover{
+            border: 1px solid #afa7a7;
+        transition: 1.1s;
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="#food" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Food</a>
+    <a href="#places" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Places</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
+    <div class="searchBox">
+      <input type="search" placeholder="Search">
+      <i class="fa fa-search"></i>
+  </div>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#food" class="w3-bar-item w3-button w3-padding-large">Food</a>
+    <a href="#places" class="w3-bar-item w3-button w3-padding-large">Places</a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large">Contact</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-grey w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo"><strong>WELCOME MONSIEUR</strong></h1>
+  <p class="w3-xlarge">@Bharath_891</p>
+  <a href="#food"><button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button></a>
+</header>
+
+<!-- First Grid -->
+<div id="food" class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1><b>FOODS</b></h1>
+      <h5 class="w3-padding-32">Discover the magic of French cuisine! Savor the richness of buttery croissants, the elegance of coq au vin, and the indulgence of crème brûlée. French food isn't just a meal; it's an experience of tradition and flavor that will enchant your taste buds. Join us and taste why French cuisine is renowned worldwide!</h5>
+      <p class="w3-text-grey">"Experience France on Your Plate – Authentic Flavors Await!"</p>
+      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="toggleDropdown()">EXPLORE FOOD'S</button>
+      <div id="foodDropdown" class="w3-hide">
+        <div class="cards-container" id="food-cards-container">
+          <!-- Food cards will be added here by JavaScript -->
+        </div>
+      </div>
+    </div>
+    <div class="w3-third w3-center">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/220526172614-16-classic-french-dishes-steak-frites.jpg?c=original" alt="French food">
+      <img src="https://www.willflyforfood.net/wp-content/uploads/2022/10/french-food-confit-de-canard.jpg" alt="French food">
+      <img src="https://www.thespruceeats.com/thmb/fFo_yzaj4un7bq4o6jyq7ThjU0U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/basic-crepe-recipe-sweet-or-savory-995317-hero-5beb1445c9e77c0026f2bbb5.jpg" alt="French food">
+      <img src="https://www.willflyforfood.net/wp-content/uploads/2021/12/french-pastries-croissant.jpg" alt="French food">
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div id="places" class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <img src="https://www.avis.co.in/blog/wp-content/uploads/2018/08/paris.jpg" alt="French Places">
+      <img src="https://admin.expatica.com/fr/wp-content/uploads/sites/5/2023/11/Mont-Saint-Michel.jpg" alt="French Places">
+      <img src="https://366e203a.rocketcdn.me/wp-content/uploads/2020/09/paris.jpg" alt="French Places">
+      <img src="https://media.licdn.com/dms/image/C4E12AQGEqF6vM90yTg/article-cover_image-shrink_600_2000/0/1525214895887?e=2147483647&v=beta&t=MV6koicwOcAX-_Xd_9XPz2OuHjrUgBHiNQ9EJBXl3mw" alt="French Places">
+    </div>
+    <div class="w3-twothird">
+      <h1><b>PLACES</b></h1>
+      <h5 class="w3-padding-32">Discover France’s hidden gems! Explore vibrant cities, serene countryside, and breathtaking landmarks. From Parisian charm to the beauty of the French Riviera, every visit is an adventure. Experience the magic of France today!</h5>
+      <p class="w3-text-grey">"Discover France: Adventure, beauty, and culture in every corner."</p>
+      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="togglePlacesDropdown()">EXPLORE PLACES</button>
+      <div id="placesDropdown" class="w3-hide">
+        <div class="cards-container" id="places-cards-container">
+          <!-- Places cards will be added here by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- About Section -->
+<div class="w3-content w3-justify w3-text-black w3-padding-64" id="about">
+  <h2 class="w3-text-black"><b>ABOUT US</b></h2>
+  <hr style="width:200px" class="w3-opacity">
+  <p>We are dedicated to bringing you the best of France, from its exquisite cuisine to its picturesque landscapes. Join us on a journey to discover the beauty and culture of this amazing country.</p>
+  
+  <!-- Skills Section -->
+  <h3 class="w3-padding-16 w3-text-grey">Our Expertise</h3>
+  <p class="w3-wide">Cuisine</p>
+  <div class="w3-white">
+    <div class="w3-dark-grey" style="height:28px;width:90%"></div>
+  </div>
+  <p class="w3-wide">Landscapes</p>
+  <div class="w3-white">
+    <div class="w3-dark-grey" style="height:28px;width:85%"></div>
+  </div>
+  <p class="w3-wide">Culture</p>
+  <div class="w3-white">
+    <div class="w3-dark-grey" style="height:28px;width:80%"></div>
+  </div>
+  <br>
+  
+  <!-- Statistics Section -->
+  <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+    <div class="w3-quarter w3-section">
+      <span class="w3-xlarge">14+</span><br> Partners
+    </div>
+    <div class="w3-quarter w3-section">
+      <span class="w3-xlarge">55+</span><br> Projects Done
+    </div>
+    <div class="w3-quarter w3-section">
+      <span class="w3-xlarge">89+</span><br> Happy Clients
+    </div>
+    <div class="w3-quarter w3-section">
+      <span class="w3-xlarge">150+</span><br> Meetings
+    </div>
+  </div>
+  
+  <!-- Social Media Links -->
+  <h3 class="w3-padding-16 w3-text-grey">Follow Us</h3>
+  <div class="w3-xlarge w3-section">
+    <a href="https://www.facebook.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-facebook-official"></i></a>
+    <a href="https://www.instagram.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.snapchat.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-snapchat"></i></a>
+    <a href="https://www.pinterest.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-pinterest-p"></i></a>
+    <a href="https://www.twitter.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-linkedin"></i></a>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="w3-container w3-light-grey w3-padding-64 w3-large">
+  <h1><b>Contact Us</b></h1>
+  <p class="w3-xxlarge w3-serif">"We'd love your feedback!"</p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-large w3-margin-bottom">
+      <i class="fa fa-map-marker w3-hover-text-black" style="width:30px"></i> Paris, France<br>
+      <i class="fa fa-phone w3-hover-text-black" style="width:30px"></i> Phone: +33 12 34 56 78<br>
+      <i class="fa fa-envelope w3-hover-text-black" style="width:30px"></i> Email: contact@monsieur.com<br>
+    </div>
+    <div class="w3-col m6">
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-black w3-padding-40 w3-center w3-opacity">
+  <div class="w3-xlarge w3-padding-32">
+    <a href="https://www.facebook.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-facebook-official"></i></a>
+    <a href="https://www.instagram.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.snapchat.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-snapchat"></i></a>
+    <a href="https://www.pinterest.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-pinterest-p"></i></a>
+    <a href="https://www.twitter.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/" target="_blank" class="w3-hover-opacity"><i class="fa fa-linkedin"></i></a>
+  </div>
+  <p>Powered by <a href="#" target="_blank" class="w3-hover-text-green">Bharath Chelimalla</a></p>
+</footer>
+
+<script>
+  const foodCardData = [
+  { img: "https://media.cnn.com/api/v1/images/stellar/prod/220530154825-01-a-classic-french-dishes-boeuf-bourguignon-restricted.jpg?q=w_1110,c_fill/f_webp", text: "Boeuf Bourguignon" },
+  { img: "https://media.cnn.com/api/v1/images/stellar/prod/220526165503-02-classic-french-dishes-bouillabaisse.jpg?q=w_1110,c_fill/f_webp", text: "Bouillabaisse" },
+  { img: "https://media.cnn.com/api/v1/images/stellar/prod/220526170120-06-classic-french-dishes-salade-nioise.jpg?q=w_1110,c_fill/f_webp", text: "Salade Niçoise" },
+  { img: "https://media.cnn.com/api/v1/images/stellar/prod/220527110811-19-classic-french-dishes-pot-au-feu.jpg?q=w_1110,c_fill/f_webp", text: "Pot-au-feu" },
+  { img: "https://media.cnn.com/api/v1/images/stellar/prod/220530155739-05-a-classic-french-dishes-crpes-suzette.jpg?q=w_1110,c_fill/f_webp", text: "Crêpes" },
+  { img: "https://media.cnn.com/api/v1/images/stellar/prod/220526170120-06-classic-french-dishes-salade-nioise.jpg?q=w_1110,c_fill/f_webp", text: "Salade Niçoise" },
+  { img: "https://media.cnn.com/api/v1/images/stellar/prod/220526172008-13-classic-french-dishes-quiche-lorraine.jpg?q=w_1110,c_fill/f_webp", text: "Quiche Lorraine" },
+  { img: "https://media.cnn.com/api/v1/images/stellar/prod/220526171815-12-classic-french-dishes-profiteroles.jpg?q=w_1110,c_fill/f_webp", text: "Profiteroles" },
+  ];
+
+const placesCardData = [
+  { img: "https://media.timeout.com/images/106141750/1024/576/image.webp", text: "Paris" },
+  { img: "https://media.timeout.com/images/105965877/1024/576/image.webp", text: "Marseille" },
+  { img: "https://media.timeout.com/images/105916650/1024/576/image.webp", text: "French Riviera" },
+  { img: "https://media.timeout.com/images/105980711/1024/576/image.webp", text: "Normandy" },
+  { img: "https://media.timeout.com/images/105948009/1024/576/image.webp", text: "Bordeaux" },
+  { img: "https://media.timeout.com/images/105678752/1024/576/image.webp", text: "Provence" },
+  { img: "https://media.timeout.com/images/105970396/1024/576/image.webp", text: "Dordogne" },
+  { img: "https://media.timeout.com/images/105975536/1024/576/image.webp", text: "Loire Valley" },
+];
+
+function toggleDropdown() {
+  const dropdown = document.getElementById("foodDropdown");
+  if (dropdown.classList.contains("w3-hide")) {
+    dropdown.classList.remove("w3-hide");
+    displayCards("food-cards-container", foodCardData);
+  } else {
+    dropdown.classList.add("w3-hide");
+  }
+}
+
+function togglePlacesDropdown() {
+  const dropdown = document.getElementById("placesDropdown");
+  if (dropdown.classList.contains("w3-hide")) {
+    dropdown.classList.remove("w3-hide");
+    displayCards("places-cards-container", placesCardData);
+  } else {
+    dropdown.classList.add("w3-hide");
+  }
+}
+
+function displayCards(containerId, cardData) {
+  const cardsContainer = document.getElementById(containerId);
+  cardsContainer.innerHTML = "";
+  cardData.forEach(item => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
+      <img src="${item.img}" alt="${item.text}">
+      <div class="text">${item.text}</div>
+    `;
+    cardsContainer.appendChild(card);
+  });
+}
+
+
+var myFunction = function() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+};
+
+</script>
+
+</body>
+</html>
